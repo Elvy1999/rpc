@@ -60,4 +60,4 @@ function playGame() {
   console.log("The computer score is: " + computerScore);
 }
 
-playGame();
+// playGame();
