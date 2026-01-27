@@ -68,7 +68,7 @@ main .scoreSection {
   justify-content: space-between;
   gap: clamp(0.6rem, 2.4vw, 1.6rem);
   width: min(780px, 100%);
-  margin: clamp(1rem, 3vw, 2.25rem) auto 0;
+  margin: clamp(0.15rem, 0.9vw, 0.7rem) auto 0;
   padding: clamp(0.85rem, 2.6vw, 1.35rem) clamp(0.9rem, 3.2vw, 1.9rem);
   border-radius: 20px;
   border: 1px solid rgba(229, 231, 235, 0.08);
@@ -103,6 +103,60 @@ main .scoreSection .goal {
   font-weight: 600;
   letter-spacing: 0.01em;
 }
+main .gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2.2vw, 1.5rem);
+  width: min(980px, 100%);
+  margin: clamp(1rem, 3.2vw, 2.25rem) auto 0;
+  padding: clamp(0.85rem, 2.1vw, 1.35rem);
+  min-height: clamp(200px, 40vh, 320px);
+  border-radius: 22px;
+  border: 1px solid rgba(229, 231, 235, 0.08);
+  background: radial-gradient(900px 340px at 50% -220px, rgba(56, 189, 248, 0.12), transparent 70%), rgba(22, 33, 63, 0.72);
+  color: #e5e7eb;
+  box-shadow: 0 24px 60px rgba(2, 8, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+main .gameArea .buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(0.7rem, 2vw, 1.25rem);
+  width: min(760px, 100%);
+}
+main .gameArea button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)), rgba(17, 27, 52, 0.9);
+  color: #e5e7eb;
+  padding: clamp(0.85rem, 2.4vw, 1.05rem) clamp(1rem, 3.2vw, 1.6rem);
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  min-width: clamp(120px, 18vw, 170px);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  box-shadow: 0 14px 30px rgba(14, 165, 233, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+main .gameArea button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.75);
+  box-shadow: 0 18px 38px rgba(14, 165, 233, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+main .gameArea button:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.2), inset 0 2px 6px rgba(2, 8, 23, 0.45);
+}
+main .gameArea button:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.45);
+  outline-offset: 3px;
+}
 
 footer {
   text-align: center;
@@ -110,4 +164,51 @@ footer {
   background-color: rgba(22, 33, 63, 0.95);
   color: #cbd5e1;
   border-top: 1px solid rgba(229, 231, 235, 0.08);
+}
+
+@media (max-width: 600px) {
+  body {
+    align-items: center;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: min(640px, 100%);
+    margin: 0 auto;
+    padding: 0.95rem 0.9rem 0.85rem;
+  }
+  main .scoreSection {
+    width: min(560px, 100%);
+    margin: 0.35rem auto 0;
+    padding: 0.75rem 0.8rem;
+    justify-content: center;
+  }
+  main .scoreSection .goal {
+    max-width: 16rem;
+    padding: 0.55rem 0.7rem;
+    text-align: center;
+  }
+  main .gameArea {
+    flex: 1;
+    min-height: 0;
+    width: min(560px, 100%);
+    margin: 0.55rem auto 0;
+    padding: 0.85rem 0.75rem 0.7rem;
+    min-height: clamp(180px, 42vh, 280px);
+    border-radius: 18px;
+  }
+  main .gameArea .buttons {
+    flex-direction: column;
+    width: min(420px, 100%);
+  }
+  main .gameArea button {
+    width: 100%;
+    min-width: 0;
+  }
+  footer {
+    width: min(640px, 100%);
+    margin: 0 auto;
+  }
 }
