@@ -135,7 +135,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.75rem, 2.2vw, 1.5rem);
+    gap: 80px;
     width: min(980px, 100%);
     margin: clamp(1rem, 3.2vw, 2.25rem) auto 0;
     padding: clamp(0.85rem, 2.1vw, 1.35rem);
@@ -149,6 +149,45 @@ main {
     box-shadow:
       0 24px 60px rgba(2, 8, 23, 0.45),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    #result {
+      position: relative;
+      width: min(540px, 100%);
+      padding: clamp(0.7rem, 2vw, 1rem) clamp(1.1rem, 3vw, 1.6rem);
+      text-align: center;
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+      font-weight: 700;
+      color: $text;
+      border-radius: 999px;
+      border: 1px solid rgba($accent, 0.5);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)), rgba($surface, 0.9);
+      box-shadow:
+        0 18px 40px rgba(14, 165, 233, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba($accent, 0.8) 0%, rgba($accent, 0) 70%);
+        transform: translateY(-50%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      &::before {
+        left: -12px;
+      }
+
+      &::after {
+        right: -12px;
+      }
+    }
 
     .buttons {
       display: flex;
@@ -180,26 +219,26 @@ main {
       box-shadow:
         0 14px 30px rgba(14, 165, 233, 0.16),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
 
-    button:hover {
-      transform: translateY(-2px);
-      border-color: rgba($accent, 0.75);
-      box-shadow:
-        0 18px 38px rgba(14, 165, 233, 0.24),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
+      &:hover {
+        transform: translateY(-2px);
+        border-color: rgba($accent, 0.75);
+        box-shadow:
+          0 18px 38px rgba(14, 165, 233, 0.24),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
 
-    button:active {
-      transform: translateY(0);
-      box-shadow:
-        0 10px 22px rgba(14, 165, 233, 0.2),
-        inset 0 2px 6px rgba(2, 8, 23, 0.45);
-    }
+      &:active {
+        transform: translateY(0);
+        box-shadow:
+          0 10px 22px rgba(14, 165, 233, 0.2),
+          inset 0 2px 6px rgba(2, 8, 23, 0.45);
+      }
 
-    button:focus-visible {
-      outline: 3px solid rgba($accent, 0.45);
-      outline-offset: 3px;
+      &:focus-visible {
+        outline: 3px solid rgba($accent, 0.45);
+        outline-offset: 3px;
+      }
     }
   }
 }
@@ -225,39 +264,38 @@ footer {
     width: min(640px, 100%);
     margin: 0 auto;
     padding: 0.95rem 0.9rem 0.85rem;
-  }
+    .scoreSection {
+      width: min(560px, 100%);
+      margin: 0.35rem auto 0;
+      padding: 0.75rem 0.8rem;
+      justify-content: center;
 
-  main .scoreSection {
-    width: min(560px, 100%);
-    margin: 0.35rem auto 0;
-    padding: 0.75rem 0.8rem;
-    justify-content: center;
-  }
+      .goal {
+        max-width: 16rem;
+        padding: 0.55rem 0.7rem;
+        text-align: center;
+      }
+    }
 
-  main .scoreSection .goal {
-    max-width: 16rem;
-    padding: 0.55rem 0.7rem;
-    text-align: center;
-  }
+    .gameArea {
+      flex: 1;
+      min-height: 0;
+      width: min(560px, 100%);
+      margin: 0.55rem auto 0;
+      padding: 0.85rem 0.75rem 0.7rem;
+      min-height: clamp(180px, 42vh, 280px);
+      border-radius: 18px;
 
-  main .gameArea {
-    flex: 1;
-    min-height: 0;
-    width: min(560px, 100%);
-    margin: 0.55rem auto 0;
-    padding: 0.85rem 0.75rem 0.7rem;
-    min-height: clamp(180px, 42vh, 280px);
-    border-radius: 18px;
-  }
+      .buttons {
+        flex-direction: column;
+        width: min(420px, 100%);
+      }
 
-  main .gameArea .buttons {
-    flex-direction: column;
-    width: min(420px, 100%);
-  }
-
-  main .gameArea button {
-    width: 100%;
-    min-width: 0;
+      button {
+        width: 100%;
+        min-width: 0;
+      }
+    }
   }
 
   footer {
