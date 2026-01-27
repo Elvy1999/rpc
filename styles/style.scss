@@ -22,6 +22,11 @@ body {
   background:
     radial-gradient(900px 400px at 50% -200px, rgba($accent, 0.22), transparent 70%),
     linear-gradient(160deg, $bg 0%, $bg-gradient-end 100%);
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
 }
 
 header {
@@ -43,8 +48,7 @@ header {
     position: absolute;
     inset: -40% -20% auto;
     height: 120%;
-    background:
-      radial-gradient(600px 300px at 50% 20%, rgba($accent, 0.25), transparent 65%);
+    background: radial-gradient(600px 300px at 50% 20%, rgba($accent, 0.25), transparent 65%);
     pointer-events: none;
     filter: blur(6px);
     opacity: 0.9;
@@ -71,10 +75,65 @@ header {
 
 main {
   flex: 1;
-  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 5vw, 5rem);
+  padding:
+    clamp(1.5rem, 4vw, 3rem)
+    clamp(1.8rem, 6vw, 6.5rem)
+    clamp(1.5rem, 4vw, 3rem)
+    clamp(1.25rem, 5vw, 5rem);
   background-color: rgba($surface, 0.55);
   color: $text-muted;
   border-top: 1px solid rgba($text, 0.06);
+
+  .scoreSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.6rem, 2.4vw, 1.6rem);
+    width: min(780px, 100%);
+    margin: clamp(1rem, 3vw, 2.25rem) auto 0;
+    padding: clamp(0.85rem, 2.6vw, 1.35rem) clamp(0.9rem, 3.2vw, 1.9rem);
+    border-radius: 20px;
+    border: 1px solid rgba($text, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+    box-shadow:
+      0 20px 45px rgba(2, 8, 23, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    .score {
+      flex: 0 0 auto;
+      min-width: clamp(74px, 16vw, 104px);
+      min-height: clamp(74px, 16vw, 104px);
+      padding: clamp(0.6rem, 2vw, 0.9rem);
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      border: 1px solid rgba($accent, 0.4);
+      background:
+        radial-gradient(120px 80px at 50% -20%, rgba($accent, 0.28), transparent 70%),
+        rgba($surface-strong, 0.85);
+      color: $text;
+      font-size: clamp(2.05rem, 6vw, 3rem);
+      font-weight: 800;
+      line-height: 1;
+      text-shadow: 0 12px 30px rgba(2, 8, 23, 0.55);
+      box-shadow:
+        0 16px 35px rgba(14, 165, 233, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    }
+
+    .goal {
+      flex: 1;
+      text-align: center;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px dashed rgba($text, 0.2);
+      background-color: rgba($surface-strong, 0.65);
+      color: $text;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+  }
 }
 
 footer {
@@ -83,8 +142,4 @@ footer {
   background-color: rgba($surface-strong, 0.95);
   color: $text-muted;
   border-top: 1px solid rgba($text, 0.08);
-}
-img {
-  max-width: 100%;
-  display: block;
 }
